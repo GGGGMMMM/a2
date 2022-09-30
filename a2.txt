@@ -1,0 +1,194 @@
+Script started on 2022-09-29 23:50:41-04:00
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ 
+0)Because the newlines are in cell, text formatting in Excel with wrapping will automatically text wrapping with line breaks. New lines can be removed by formula =SUBSTITUTE(A2,CHAR(10),"").The SUBSTITUTE function finds and replaces the CHAR(10) character – which represents the line feed character. So, the above formula finds all the line breaks and replace these with blank – which essentially means that these line breaks have been removed.
+
+
+1)
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ cat downloaded_tweets_extend_original_nolf2_NOBOT.tsv |grep type=replied_to|cut -f 2|sort|uniq -c|sort -n|tail -n 10
+      9 4830874006
+     10 1401861298233647106
+     10 90107770
+     11 29447428
+     14 940778288871542786
+     14 94350709
+     16 1240682348120866816
+     17 1921951394
+     19 1573800344
+     28 1387010761994682371
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ 
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ 
+
+
+2)
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ cat downloaded_tweets_extend_original_nolf2_NOBOT.tsv |grep type=quoted|cut -f 2|sort|uniq -c|sort -n|tail -n 10
+     25 940778288871542786
+     26 299273962
+     27 985749294
+     29 1235970884113850368
+     31 326184301
+     33 1244266306485932034
+     34 1108297656550318080
+     39 1125443593085358082
+     59 17477864
+     59 18831926
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ 
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ 
+
+
+
+3)
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ cat downloaded_tweets_extend_nolf2_NOBOT.tsv|grep type=retweeted|cut -f 2|sort|uniq -c|sort -n |tail -n 10
+   1139 1060440219097423872
+   1159 29447428
+   1216 832019161454817280
+   1234 177400353
+   1281 139109800
+   1312 711608180535640064
+   1582 1028022611324747776
+   1641 870244616003403781
+   1678 77726331
+   2065 45379403
+
+5)
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ cat downloaded_tweets_extend_nolf2_NOBOT.tsv|tr "[:upper:]" "[:lower:]"|cut -f 4|sed '/^[[:blank:]]*$/d'| sed 's/"//g'|tr ',' '\n'|sort|uniq -c|sort -n|tail -n 30
+    256 onpoli
+    257 cdnpoli
+    260 boycottrussia
+    263 russiasanctions
+    266 ottawa
+    274 putinwarcriminal
+    280 เจ้าแก้มก้อน
+    285 genocide
+    295 partygate
+    302 pmqs
+    308 stopputinnow
+    328 covidisairborne
+    342 bcpoli
+    351 kyiv
+    358 mariupol
+    383 ableg
+    384 auspol
+    423 putin
+    429 breaking
+    448 covid
+    475 russian
+    479 omicron
+    536 putinhitler
+    794 standwithukraine
+    895 fbpe
+    897 followbackfriday
+   1137 russia
+   1314 longcovid
+   1924 covid19
+   2895 ukraine
+
+
+
+6)
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ cat downloaded_tweets_extend_nolf2_NOBOT.tsv|tr "[:upper:]" "[:lower:]"|grep type=retweeted|cut -f 4| sed '/^[[:blank:]]*$/d'|sed 's/"//g'|tr ',' '\n'|sort|uniq -c|sort -n|tail -n 30
+    114 uk
+    115 nato
+    116 ukrainerussiawar
+    118 insiders
+    119 anonymous
+    121 โอห์มไง
+    123 cdnpoli
+    124 england
+    125 covidisairborne
+    128 kharkiv
+    182 ableg
+    182 partygate
+    198 pmqs
+    220 ukrainian
+    239 fluke_natouch
+    243 ba2
+    246 putin
+    247 standwithukraine
+    274 เจ้าแก้มก้อน
+    289 mariupol
+    319 covid
+    329 kyiv
+    355 omicron
+    368 auspol
+    412 russian
+    425 breaking
+   1053 russia
+   1151 longcovid
+   1334 covid19
+   2563 ukraine
+
+
+
+7)
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ cat downloaded_tweets_extend_nolf2_NOBOT.tsv|tr "[:upper:]" "[:lower:]"|grep type=replied_to|cut -f 4| sed '/^[[:blank:]]*$/d'|sed 's/"//g'|tr ',' '\n'|sort|uniq -c|sort -n|tail -n 30
+     55 omicron
+     58 maskup
+     58 ontario
+     61 n95
+     62 cdnpoli
+     72 canada
+     76 putin
+     84 climatecrisis
+     85 apartheid
+     87 covidisairborne
+     92 votefordout
+     93 ukraine
+     99 longcovid
+    101 onpoli
+    106 boycottatp
+    107 nevervoteconservative
+    121 genocide
+    122 covid19bc
+    127 bced
+    142 ottawa
+    178 bcpoli
+    191 putinwarcriminal
+    207 boycottrussia
+    211 russiasanctions
+    216 stopputinnow
+    280 covid19
+    319 standwithukraine
+    429 putinhitler
+    876 followbackfriday
+    883 fbpe
+
+
+
+
+
+8)
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ cat downloaded_tweets_extend_nolf2_NOBOT.tsv|tr "[:upper:]" "[:lower:]"|grep type=quoted|cut -f 4| sed '/^[[:blank:]]*$/d'|sed 's/"//g'|tr ',' '\n'|sort|uniq -c|sort -n|tail -n 30
+     46 freepalestine
+     46 votethemallout2022
+     47 putinwarcriminal
+     49 vote
+     51 omicron
+     53 covid
+     53 covidisnotover
+     54 bced
+     56 canada
+     57 longcovid
+     57 ottawa
+     59 cdnpoli
+     60 putinhitler
+     64 bds
+     64 putin
+     65 maskup
+     68 covid19bc
+     74 ontario
+     78 maskmandate
+     84 ukraine
+     86 covidisairborne
+     93 bcpoli
+    100 nevervoteconservative
+    105 onpoli
+    115 genocide
+    119 covid19ab
+    124 ableg
+    140 votefordout
+    151 standwithukraine
+    241 covid19
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ 
+]0;guoman@sjsu:~/A2[guoman@sjsu A2]$ exit
+
+Script done on 2022-09-29 23:52:28-04:00
